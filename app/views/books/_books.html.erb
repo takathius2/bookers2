@@ -1,0 +1,10 @@
+<% books.each do |book| %>
+<div>
+ <%= link_to user_path(book.id) do %>
+    <P><%= image_tag book.user.get_profile_image(100,100) %></P>
+ <% end %>
+     <h3>Title</h><br>
+        <%= link_to book.title, book_path(book.id) %></p>
+    <h3>Opinion</h><br>
+        <%= book.body %>
+</div>
