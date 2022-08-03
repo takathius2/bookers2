@@ -1,16 +1,10 @@
-<html>
-    <head>
-        <body>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-            <header>
-            <main>
-                <h1>Book detail</h1>
-                <%= render 'books_book', books: books %>
-                <% if book.user == curent_user %>
-                 <%= link_to "Destroy", book_path(book), method: :delete %>
-                <% end %>
-            </main>
-            </header>
-        </body>
-    </head>
-</html>
+<main>
+    <h1>Book detail</h1>
+        <%= profile_image @book.get_image %><br><%= @book.user.name %>
+            <%= link_to @book.title, book_path(@book.id) %>
+        <%= @book.body %>
+            <%= link_to "Edit", edit_book_path(@book.id) %>
+        <% if @book.user == current_user %>
+            <%= link_to "Destroy", books_path(@book), method: :delete %>
+        <% end %>
+</main>
