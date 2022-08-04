@@ -1,20 +1,11 @@
-
-<div>
+<main>
     <h1>User info</h1>
-    <%= link_to edit_user_path(@user.id) do %>
-    <P><%= image_tag @user.get_profile_image(100,100) %></P>
-  <% end %>
-    <h3>name <%= @user.name %></h3>
-    <h3>introduction<%= @user.user_introduction %> </h3>
-    <% if @user.id == current_user.id %>
-           <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    <%= image_tag @user.get_profile_image(100,100) %><br>
+        <h3>name <%= @user.name %></h3>
+        <h3>introduction <%= @user.user_introduction %> </h3>
+            <% if @user.id == current_user.id? %>
+                <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+            <% else %>
+                <p><%= link_to "プロフィール編集", user_path(user.id) %></p>
     <% end %>
-</div>
-
-<% @books.each do |book| %>
-<div>
- <%= link_to book_path(book.id) do %>
-  <%= image_tag book_image.get_image %>
- <% end %>
- <% end %>
-</div>
+</main>
