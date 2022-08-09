@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
+    @users = @user.profile_image
   end
 
   def edit
@@ -23,10 +24,11 @@ class UsersController < ApplicationController
   
   def correct_user
     user = User.find(params[:id])
-    if current_user_id != user.id
+    if current_user.id != user.id
       redirect_to user_path(current_user.id)
     end
   end
+  
   def user_params
     params.require(:user).permit(:name, :profile_image, :user_introduction)
   end

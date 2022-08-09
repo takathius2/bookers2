@@ -1,5 +1,7 @@
 <main>
-    <h1>Book detail</h1>
+    <div>
+        <h1>Book detail</h1>
+        <%= render 'users/user', books: @user %>
         <%= link_to image_tag @book.user.get_profile_image(100,100) %><br><%= link_to @book.user.name, user_path(@user.id) %>
         <%= link_to @book.title, book_path(@book.id) %>
         <%= @book.body %>
@@ -7,4 +9,5 @@
             <%= link_to "Edit", edit_book_path(@book.id) %>
             <%= link_to "Destroy", books_path(@book), method: :delete %>
         <% end %>
+    </div>
 </main>

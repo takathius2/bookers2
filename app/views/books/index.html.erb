@@ -1,1 +1,10 @@
-<%= render 'users/user', books: @books %>
+<div>
+        <h1>Books</h1>
+        <%= @books.each do |book| %>
+            <%= link_to user_path(book.user.id) do %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+            <% end %><br>
+            <h3>Title</h3><br><%= link_to book.title, book_path(book.id) %><br>
+            <h3>Opinion</h3><br><%= book.body %><br>
+        <% end %>
+</div>
