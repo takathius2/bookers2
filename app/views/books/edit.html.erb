@@ -1,7 +1,6 @@
 <main>
     <div>
         <h1>Editing Book</h1>
-    <%= render 'users/user', books: @user %>
     <%= form_with model: @book do |f| %>
         <p>Title</p>
             <%= f.text_field :title %>

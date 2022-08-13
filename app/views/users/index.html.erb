@@ -1,12 +1,10 @@
 <main>
-    
     <div> 
-        <h2>Users</h2><!--user詳細-->
+    <%= render 'user', book: @book, user: @user %>
+        <h1>Users</h1>
         <% @users.each do |user| %>
             <p>image</p><br><%= image_tag user.get_profile_image(100,100) %>
             <p>name <br><%= user.name %></p><br><%= link_to "Show", user_path(user.id) %>
         <% end %>
     </div>
-    
-    <%= render 'user', book: @user %>
 </main>

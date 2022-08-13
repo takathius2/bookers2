@@ -1,7 +1,7 @@
 <main>
     <div>
-        <h1>Book detail</h1>
-        <%= render 'users/user', books: @user %>
+        <%= render 'users/user', user: @user, book: @book_new %>
+    <h1>Book detail</h1>
         <%= link_to image_tag @book.user.get_profile_image(100,100) %><br><%= link_to @book.user.name, user_path(@user.id) %>
         <%= link_to @book.title, book_path(@book.id) %>
         <%= @book.body %>
