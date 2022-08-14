@@ -1,5 +1,7 @@
 <div>
-        <%= render 'users/user', book: @book, user: @user %>
+    
+    
+    <%= render 'users/user', book: @book, user: @user %>
         <h1>Books</h1>
         <% @books.each do |book| %>
             <%= link_to user_path(book.user.id) do %>

@@ -11,7 +11,7 @@
 
   <body>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <header>
+     <header>
       <ul>
         <li><%= link_to 'Bookers', root_path %></li>
         <% if user_signed_in? %>
@@ -26,7 +26,8 @@
           <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
       </ul>
-    </header>
+     </header>
+     <%= flash[:notice] %>
     <%= yield %>
     <footer>
       <p>CopyRight Infratop.inc</p>
