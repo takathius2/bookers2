@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
      <header>
-      <ul>
-        <li><%= link_to 'Bookers', root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Home', user_path(current_user.id) %></li>
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Books', books_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'About', about_path %></li>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%= link_to "Log in", new_user_session_path %></li>
-        <% end %>
-      </ul>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand p-3" href="https://bookers-level2.herokuapp.com">Bookers</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-light fa-bars"></i>
+          </button>
+          <div class="navbar-collapse" id="navbarNavDropdown" stytle>
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li><i class="fas fa-home"><%= link_to 'Home', user_path(current_user.id) %></i></li>
+                <li><%= link_to 'Users', users_path %></li>
+                <li><%= link_to 'Books', books_path %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Home', root_path %></li>
+                <li><%= link_to 'About', about_path %></li>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+                <li><%= link_to "Log in", new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
      </header>
      <%= flash[:notice] %>
     <%= yield %>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
