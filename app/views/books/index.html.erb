@@ -7,15 +7,37 @@
                 <% end %>
             </ul>
     <% end %>
-    
-    <%= render 'users/user', book: @book, user: @user %>
-        <h1>Books</h1>
-        <% @books.each do |book| %>
-            <%= link_to user_path(book.user.id) do %>
-                <%= image_tag book.user.get_profile_image(100,100) %>
-            <% end %><br>
-            <h3>Title</h3><br><%= link_to book.title, book_path(book.id) %><br>
-            <h3>Opinion</h3><br><%= book.body %><br>
-        <% end %>
+        <div class="container px-5 px-sm-0">
+            <div class="row">
+                 <%= render 'users/user', book: @book, user: @user %>
+                <div class="col-md-8 offset-md-1">
+                    <h1>Books</h1>
+                    <table class="table table-hover table-inverse">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Title</th>
+                                <th>Opinion</th>
+                                <th colspan="3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% @books.each do |book| %>
+                        <%= link_to user_path(book.user.id) do %>
+                            <%= image_tag book.user.get_profile_image(100,100) %>
+                        <% end %><br>
+                        <h3>Title</h3><br><%= link_to book.title, book_path(book.id) %><br></h3>
+                        <h3>Opinion</h3><br><%= book.body %><br>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
